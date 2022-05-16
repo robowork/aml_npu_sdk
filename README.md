@@ -2,22 +2,30 @@
 
 Clone with submodules
 
-```sh
-$ git clone --recursive https://github.com/khadas/aml_npu_sdk.git
+```
+git clone --recursive git@github.com:robowork/aml_npu_sdk.git
 ```
 
 update submodules
 
-```sh
-$ git submodule init
-$ git submodule update
 ```
+git submodule init
+git submodule update
+```
+
+## Create environment and install dependencies
+````
+cd aml_npu_sdk &&
+conda env create -f npu_convert.yml &&
+conda activate npu
+```
+
 
 c/c++ convert tool:
 
 ```
-$ cd acuity-toolkit/demo
-$ bash ./0_import_model.sh && bash ./1_quantize_model.sh && bash ./2_export_case_code.sh
+cd acuity-toolkit/demo
+bash ./0_import_model.sh && bash ./1_quantize_model.sh && bash ./2_export_case_code.sh
 ```
 
 Case code is in current directory: `nbg_unify_xxxxx`.
@@ -25,8 +33,8 @@ Case code is in current directory: `nbg_unify_xxxxx`.
 python convert tool:
 
 ```
-$ cd acuity-toolkit/python
-$ ./convert \
+cd acuity-toolkit/python
+./convert \
 --model-name inception \
 --platform tensorflow \
 --model /path/to/inception_v3.pb \
